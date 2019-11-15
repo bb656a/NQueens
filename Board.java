@@ -9,27 +9,17 @@ public class Board
 {
 	// adding to test git branches ADSFASDFASDF
 	int size = 0;
-	static long count = 0;
-	long id = 0;
 	Iterator<Coordinates> it;
 	ArrayList<Coordinates> queens;
 	ArrayList<Coordinates> possible;
-	long parentId = 0;
 	
-	public Board(int size, ArrayList<Coordinates> queens, long parentId) throws Exception
+	public Board(int size, ArrayList<Coordinates> queens)
 	{
-		id = count++;
-		this.parentId = parentId;
 		this.size = size;
 		this.queens = queens;
 		findPossible();
-		System.out.println(this.toString());
 	}
 	
-	public long getId()
-	{
-		return this.id;
-	}
 	
 	public ArrayList<Coordinates> getQueens()
 	{
@@ -41,7 +31,7 @@ public class Board
 		return this.possible;
 	}
 	
-	private void findPossible() throws Exception
+	private void findPossible()
 	{
 		//Fills possible with every coordinate on the board
 		this.possible = new ArrayList<Coordinates>();
@@ -101,21 +91,15 @@ public class Board
 			}
 
 		}
-		if(!Checker.check(this.queens))
-		{
-			throw new Exception("\n\n\n Error id: " + this.id + "\n" + this.toString());
-		}
 		
 	}
 	
 	public String toString()
 	{
 		
-		String str = "\n" + "ID: " + this.id;
-		str += "\n" + "Parent ID: " + this.parentId;
 		boolean found = false;
 		
-		str += "\nPossible " + this.possible.size() + "\n";
+		String str = "\nPossible " + this.possible.size() + "\n";
 		str += this.possible.toString();
 		str += "\n queens: " + this.queens.size();
 		str += "\n" + this.queens.toString() + "\n";

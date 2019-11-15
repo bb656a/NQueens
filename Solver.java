@@ -21,7 +21,7 @@ public class Solver
 	
 	public void solve() throws Exception
 	{
-		boards.add(new Board(size, new ArrayList<Coordinates>(), -1));
+		boards.add(new Board(size, new ArrayList<Coordinates>()));
 		Board newBoard;
 		
 		while(!solved)
@@ -32,7 +32,7 @@ public class Solver
 			{
 				ArrayList<Coordinates> list = (ArrayList<Coordinates>)temp.getQueens().clone();
 				list.add((Coordinates) it.next());
-				newBoard = new Board(this.size, list, temp.getId());
+				newBoard = new Board(this.size, list);
 				
 				if(newBoard.getQueens().size() == this.size)
 				{

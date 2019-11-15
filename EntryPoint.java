@@ -6,7 +6,7 @@ public class EntryPoint {
 	public static void main(String[] args) 
 	{
 		
-		Solver solver = new Solver(8);
+		Solver solver = new Solver(4);
 		
 		try
 		{

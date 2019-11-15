@@ -27,7 +27,7 @@ public class Solver
 		while(!solved)
 		{
 			Board temp = boards.remove(boards.size()-1);
-			Iterator it = temp.getPossible().iterator();
+			Iterator<Coordinates> it = temp.getPossible().iterator();
 			while(it.hasNext())
 			{
 				ArrayList<Coordinates> list = (ArrayList<Coordinates>)temp.getQueens().clone();
